@@ -25,6 +25,6 @@ public class HelloResource {
     @Path("/test")
     @Produces("application/json")
     public String helloWorld() {
-        return "{'name': 'John'}";
+        return "{'name': 'John2'}";
     }
 }
