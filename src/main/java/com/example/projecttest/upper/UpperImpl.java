@@ -1,10 +1,12 @@
 package com.example.projecttest.upper;
 
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 
-@Stateless
+@Stateful
 public class UpperImpl implements IUpper {
+
+    private static int valor = 1;
 
     @EJB
     private IUpperRepository repository;
@@ -12,7 +14,8 @@ public class UpperImpl implements IUpper {
     @Override
     public String upper(String text) {
         String test = repository.findRepository();
-        return text.toUpperCase() + test;
+        UpperImpl.valor++;
+        return text.toUpperCase() + test + " - " + valor;
     }
 
     public void setRepository(IUpperRepository repo) {
